@@ -1,0 +1,395 @@
+<!--
+  ============================================================================
+  医院软件桌面 UI —— WPF 资源字典（Theme.xaml）
+  来源：医疗工作台 UI 设计规范（Medical Desktop UI Design）
+
+  用法（App.xaml）：
+    <Application.Resources>
+      <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+          <ResourceDictionary Source="Themes/Theme.xaml"/>
+        </ResourceDictionary.MergedDictionaries>
+      </ResourceDictionary>
+    </Application.Resources>
+
+  注意：xmlns:sys 在 .NET Framework 用 assembly=mscorlib；
+        .NET 5/6/7/8 请改为 assembly=System.Runtime。
+  页面中禁止内联硬编码色值/字号/圆角，一律 {StaticResource ...}。
+  ============================================================================-->
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+  <!-- ======================================================== 颜色与画刷 -->
+  <Color x:Key="Color.Primary">#FF2563EB</Color>
+  <Color x:Key="Color.Primary.Hover">#FF1D4ED8</Color>
+  <Color x:Key="Color.Primary.Soft">#FFEFF6FF</Color>
+  <Color x:Key="Color.Success">#FF16A34A</Color>
+  <Color x:Key="Color.Warning">#FFF59E0B</Color>
+  <Color x:Key="Color.Danger">#FFDC2626</Color>
+
+  <SolidColorBrush x:Key="Brush.Primary" Color="{StaticResource Color.Primary}"/>
+  <SolidColorBrush x:Key="Brush.Primary.Hover" Color="{StaticResource Color.Primary.Hover}"/>
+  <SolidColorBrush x:Key="Brush.Primary.Soft" Color="{StaticResource Color.Primary.Soft}"/>
+  <SolidColorBrush x:Key="Brush.Success" Color="{StaticResource Color.Success}"/>
+  <SolidColorBrush x:Key="Brush.Success.Soft" Color="#FFE9F7EF"/>
+  <SolidColorBrush x:Key="Brush.Warning" Color="{StaticResource Color.Warning}"/>
+  <SolidColorBrush x:Key="Brush.Warning.Soft" Color="#FFFEF3E2"/>
+  <SolidColorBrush x:Key="Brush.Danger" Color="{StaticResource Color.Danger}"/>
+  <SolidColorBrush x:Key="Brush.Danger.Soft" Color="#FFFDECEC"/>
+  <SolidColorBrush x:Key="Brush.Info" Color="{StaticResource Color.Primary}"/>
+  <SolidColorBrush x:Key="Brush.Info.Soft" Color="#FFE8F1FE"/>
+
+  <SolidColorBrush x:Key="Brush.Bg" Color="#FFF5F7FA"/>
+  <SolidColorBrush x:Key="Brush.Surface" Color="#FFFFFFFF"/>
+  <SolidColorBrush x:Key="Brush.Surface.Alt" Color="#FFF9FAFB"/>
+  <SolidColorBrush x:Key="Brush.Surface.Hover" Color="#FFF9FBFF"/>
+  <SolidColorBrush x:Key="Brush.Border" Color="#FFE5E7EB"/>
+  <SolidColorBrush x:Key="Brush.Divider" Color="#FFF3F4F6"/>
+  <SolidColorBrush x:Key="Brush.Text" Color="#FF1F2937"/>
+  <SolidColorBrush x:Key="Brush.Text.Secondary" Color="#FF6B7280"/>
+  <SolidColorBrush x:Key="Brush.Text.Muted" Color="#FF9CA3AF"/>
+  <SolidColorBrush x:Key="Brush.Text.Disabled" Color="#FFC4C7CE"/>
+  <SolidColorBrush x:Key="Brush.Overlay" Color="#59111827"/>
+  <SolidColorBrush x:Key="Brush.Muted" Color="#FF9CA3AF"/>
+  <SolidColorBrush x:Key="Brush.Muted.Soft" Color="#1F9CA3AF"/>
+
+  <!-- ======================================================== 尺寸与圆角 -->
+  <CornerRadius x:Key="Radius.Control">8</CornerRadius>
+  <CornerRadius x:Key="Radius.Card">10</CornerRadius>
+  <CornerRadius x:Key="Radius.Drawer">14,0,0,14</CornerRadius>
+  <CornerRadius x:Key="Radius.Badge">5</CornerRadius>
+
+  <Thickness x:Key="Pad.Card">20</Thickness>
+  <Thickness x:Key="Pad.Page">24</Thickness>
+  <Thickness x:Key="Pad.Control">12,0</Thickness>
+
+  <sys:Double x:Key="Size.Nav.Width">220</sys:Double>
+  <sys:Double x:Key="Size.Header.Height">60</sys:Double>
+  <sys:Double x:Key="Size.Row.Height">48</sys:Double>
+  <sys:Double x:Key="Size.Row.Height.Compact">44</sys:Double>
+  <sys:Double x:Key="Size.Drawer.Width">520</sys:Double>
+  <sys:Double x:Key="Size.Control.Height">36</sys:Double>
+
+  <!-- ======================================================== 字体 -->
+  <FontFamily x:Key="Font.UI">Microsoft YaHei UI, Microsoft YaHei</FontFamily>
+  <FontFamily x:Key="Font.Mono">Consolas, Cascadia Mono</FontFamily>
+  <FontFamily x:Key="Font.Icon">Segoe MDL2 Assets</FontFamily> <!-- Win11 可改 Segoe Fluent Icons -->
+
+  <sys:Double x:Key="Font.Size.Title">22</sys:Double>
+  <sys:Double x:Key="Font.Size.Section">16</sys:Double>
+  <sys:Double x:Key="Font.Size.Body">14</sys:Double>
+  <sys:Double x:Key="Font.Size.Small">13</sys:Double>
+  <sys:Double x:Key="Font.Size.Muted">12</sys:Double>
+  <sys:Double x:Key="Font.Size.Stat">30</sys:Double>
+
+  <!-- ======================================================== 文本样式 -->
+  <Style x:Key="Text.Title" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="{StaticResource Font.UI}"/>
+    <Setter Property="FontSize" Value="{StaticResource Font.Size.Title}"/>
+    <Setter Property="FontWeight" Value="SemiBold"/>
+    <Setter Property="Foreground" Value="{StaticResource Brush.Text}"/>
+  </Style>
+  <Style x:Key="Text.Section" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="{StaticResource Font.UI}"/>
+    <Setter Property="FontSize" Value="{StaticResource Font.Size.Section}"/>
+    <Setter Property="FontWeight" Value="SemiBold"/>
+    <Setter Property="Foreground" Value="{StaticResource Brush.Text}"/>
+  </Style>
+  <Style x:Key="Text.Body" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="{StaticResource Font.UI}"/>
+    <Setter Property="FontSize" Value="{StaticResource Font.Size.Body}"/>
+    <Setter Property="Foreground" Value="{StaticResource Brush.Text}"/>
+  </Style>
+  <Style x:Key="Text.Secondary" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="{StaticResource Font.UI}"/>
+    <Setter Property="FontSize" Value="{StaticResource Font.Size.Small}"/>
+    <Setter Property="Foreground" Value="{StaticResource Brush.Text.Secondary}"/>
+  </Style>
+  <Style x:Key="Text.Muted" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="{StaticResource Font.UI}"/>
+    <Setter Property="FontSize" Value="{StaticResource Font.Size.Muted}"/>
+    <Setter Property="Foreground" Value="{StaticResource Brush.Text.Muted}"/>
+  </Style>
+  <Style x:Key="Text.Stat" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="{StaticResource Font.UI}"/>
+    <Setter Property="FontSize" Value="{StaticResource Font.Size.Stat}"/>
+    <Setter Property="FontWeight" Value="SemiBold"/>
+    <Setter Property="Foreground" Value="{StaticResource Brush.Text}"/>
+    <Setter Property="Typography.NumeralAlignment" Value="Tabular"/>
+  </Style>
+
+  <!-- ======================================================== 卡片 -->
+  <Style x:Key="Card" TargetType="Border">
+    <Setter Property="Background" Value="{StaticResource Brush.Surface}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource Brush.Border}"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="CornerRadius" Value="{StaticResource Radius.Card}"/>
+    <Setter Property="Padding" Value="{StaticResource Pad.Card}"/>
+  </Style>
+
+  <!-- ======================================================== 按钮 -->
+  <Style x:Key="Button.Base" TargetType="Button">
+    <Setter Property="FontFamily" Value="{StaticResource Font.UI}"/>
+    <Setter Property="FontSize" Value="{StaticResource Font.Size.Body}"/>
+    <Setter Property="Height" Value="{StaticResource Size.Control.Height}"/>
+    <Setter Property="Padding" Value="16,0"/>
+    <Setter Property="Cursor" Value="Hand"/>
+    <Setter Property="SnapsToDevicePixels" Value="True"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Button">
+          <Border x:Name="Bd"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{StaticResource Radius.Control}">
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                              Margin="{TemplateBinding Padding}"/>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+              <Setter TargetName="Bd" Property="Opacity" Value="0.92"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter TargetName="Bd" Property="Background" Value="{StaticResource Brush.Divider}"/>
+              <Setter Property="Foreground" Value="{StaticResource Brush.Text.Disabled}"/>
+              <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Brush.Border}"/>
+              <Setter Property="Cursor" Value="Arrow"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- 每页只允许一个 Primary -->
+  <Style x:Key="Button.Primary" TargetType="Button" BasedOn="{StaticResource Button.Base}">
+    <Setter Property="Background" Value="{StaticResource Brush.Primary}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource Brush.Primary}"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="Foreground" Value="White"/>
+  </Style>
+
+  <Style x:Key="Button.Secondary" TargetType="Button" BasedOn="{StaticResource Button.Base}">
+    <Setter Property="Background" Value="{StaticResource Brush.Surface}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource Brush.Border}"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="Foreground" Value="{StaticResource Brush.Text}"/>
+  </Style>
+
+  <Style x:Key="Button.Danger" TargetType="Button" BasedOn="{StaticResource Button.Base}">
+    <Setter Property="Background" Value="{StaticResource Brush.Danger}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource Brush.Danger}"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="Foreground" Value="White"/>
+  </Style>
+
+  <!-- 表格行内操作用链接按钮 -->
+  <Style x:Key="Button.Link" TargetType="Button">
+    <Setter Property="FontFamily" Value="{StaticResource Font.UI}"/>
+    <Setter Property="FontSize" Value="{StaticResource Font.Size.Small}"/>
+    <Setter Property="Foreground" Value="{StaticResource Brush.Primary}"/>
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Padding" Value="2,0"/>
+    <Setter Property="Cursor" Value="Hand"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Button">
+          <Border Background="Transparent">
+            <TextBlock Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}"
+                       VerticalAlignment="Center"/>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter Property="Foreground" Value="{StaticResource Brush.Text.Disabled}"/>
+              <Setter Property="Cursor" Value="Arrow"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ======================================================== 输入框 -->
+  <Style x:Key="TextBox.Default" TargetType="TextBox">
+    <Setter Property="FontFamily" Value="{StaticResource Font.UI}"/>
+    <Setter Property="FontSize" Value="{StaticResource Font.Size.Body}"/>
+    <Setter Property="Height" Value="{StaticResource Size.Control.Height}"/>
+    <Setter Property="Padding" Value="{StaticResource Pad.Control}"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="Background" Value="{StaticResource Brush.Surface}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource Brush.Border}"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="MaxWidth" Value="440"/>
+    <Setter Property="HorizontalAlignment" Value="Left"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="TextBox">
+          <Border x:Name="Bd" Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{StaticResource Radius.Control}">
+            <ScrollViewer x:Name="PART_ContentHost" Margin="{TemplateBinding Padding}"
+                          VerticalAlignment="Center"/>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+              <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Brush.Primary}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter TargetName="Bd" Property="Background" Value="{StaticResource Brush.Surface.Alt}"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <Style x:Key="Label.Field" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="{StaticResource Font.UI}"/>
+    <Setter Property="FontSize" Value="{StaticResource Font.Size.Small}"/>
+    <Setter Property="Foreground" Value="{StaticResource Brush.Text.Secondary}"/>
+    <Setter Property="Margin" Value="0,0,0,6"/>
+  </Style>
+
+  <!-- ======================================================== DataGrid -->
+  <Style x:Key="DataGridColumnHeader.Medical" TargetType="DataGridColumnHeader">
+    <Setter Property="Height" Value="40"/>
+    <Setter Property="Padding" Value="12,0"/>
+    <Setter Property="Background" Value="{StaticResource Brush.Surface.Alt}"/>
+    <Setter Property="Foreground" Value="{StaticResource Brush.Text.Secondary}"/>
+    <Setter Property="FontFamily" Value="{StaticResource Font.UI}"/>
+    <Setter Property="FontSize" Value="{StaticResource Font.Size.Small}"/>
+    <Setter Property="FontWeight" Value="Medium"/>
+    <Setter Property="BorderBrush" Value="{StaticResource Brush.Border}"/>
+    <Setter Property="BorderThickness" Value="0,0,0,1"/>
+    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+  </Style>
+
+  <Style x:Key="DataGridCell.Medical" TargetType="DataGridCell">
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Padding" Value="12,0"/>
+    <Setter Property="FontFamily" Value="{StaticResource Font.UI}"/>
+    <Setter Property="FontSize" Value="{StaticResource Font.Size.Body}"/>
+    <Setter Property="Foreground" Value="{StaticResource Brush.Text}"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="DataGridCell">
+          <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+            <ContentPresenter VerticalAlignment="Center"/>
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+    <Style.Triggers>
+      <Trigger Property="IsSelected" Value="True">
+        <Setter Property="Background" Value="{StaticResource Brush.Primary.Soft}"/>
+        <Setter Property="Foreground" Value="{StaticResource Brush.Text}"/>
+      </Trigger>
+    </Style.Triggers>
+  </Style>
+
+  <Style x:Key="DataGridRow.Medical" TargetType="DataGridRow">
+    <Setter Property="Background" Value="{StaticResource Brush.Surface}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource Brush.Divider}"/>
+    <Setter Property="BorderThickness" Value="0,0,0,1"/>
+    <Style.Triggers>
+      <Trigger Property="IsMouseOver" Value="True">
+        <Setter Property="Background" Value="{StaticResource Brush.Surface.Hover}"/>
+      </Trigger>
+    </Style.Triggers>
+  </Style>
+
+  <Style x:Key="DataGrid.Medical" TargetType="DataGrid">
+    <Setter Property="AutoGenerateColumns" Value="False"/>
+    <Setter Property="CanUserAddRows" Value="False"/>
+    <Setter Property="CanUserDeleteRows" Value="False"/>
+    <Setter Property="CanUserResizeRows" Value="False"/>
+    <Setter Property="SelectionMode" Value="Single"/>
+    <Setter Property="SelectionUnit" Value="FullRow"/>
+    <Setter Property="HeadersVisibility" Value="Column"/>
+    <Setter Property="GridLinesVisibility" Value="None"/>
+    <Setter Property="RowHeight" Value="{StaticResource Size.Row.Height}"/>
+    <Setter Property="RowHeaderWidth" Value="0"/>
+    <Setter Property="Background" Value="{StaticResource Brush.Surface}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource Brush.Border}"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="EnableRowVirtualization" Value="True"/>
+    <Setter Property="ColumnHeaderStyle" Value="{StaticResource DataGridColumnHeader.Medical}"/>
+    <Setter Property="CellStyle" Value="{StaticResource DataGridCell.Medical}"/>
+    <Setter Property="RowStyle" Value="{StaticResource DataGridRow.Medical}"/>
+  </Style>
+
+  <!-- ======================================================== 导航项 -->
+  <Style x:Key="NavItem" TargetType="ListBoxItem">
+    <Setter Property="Height" Value="42"/>
+    <Setter Property="Padding" Value="16,0"/>
+    <Setter Property="FontFamily" Value="{StaticResource Font.UI}"/>
+    <Setter Property="FontSize" Value="{StaticResource Font.Size.Body}"/>
+    <Setter Property="Foreground" Value="{StaticResource Brush.Text.Secondary}"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="ListBoxItem">
+          <Border x:Name="Bd" Background="Transparent" BorderThickness="3,0,0,0"
+                  BorderBrush="Transparent" Padding="{TemplateBinding Padding}">
+            <ContentPresenter VerticalAlignment="Center"/>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+              <Setter TargetName="Bd" Property="Background" Value="{StaticResource Brush.Surface.Alt}"/>
+            </Trigger>
+            <Trigger Property="IsSelected" Value="True">
+              <Setter TargetName="Bd" Property="Background" Value="{StaticResource Brush.Primary.Soft}"/>
+              <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Brush.Primary}"/>
+              <Setter Property="Foreground" Value="{StaticResource Brush.Primary}"/>
+              <Setter Property="FontWeight" Value="Medium"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ======================================================== 状态徽标 -->
+  <!-- 用法：<Border Style="{StaticResource Badge}" Tag="Pending"> + 内部圆点与文字 -->
+  <Style x:Key="Badge" TargetType="Border">
+    <Setter Property="CornerRadius" Value="{StaticResource Radius.Badge}"/>
+    <Setter Property="Padding" Value="8,2"/>
+    <Setter Property="Background" Value="{StaticResource Brush.Muted.Soft}"/>
+  </Style>
+  <Style x:Key="Badge.Pending" TargetType="Border" BasedOn="{StaticResource Badge}">
+    <Setter Property="Background" Value="{StaticResource Brush.Warning.Soft}"/>
+  </Style>
+  <Style x:Key="Badge.Processing" TargetType="Border" BasedOn="{StaticResource Badge}">
+    <Setter Property="Background" Value="{StaticResource Brush.Info.Soft}"/>
+  </Style>
+  <Style x:Key="Badge.Done" TargetType="Border" BasedOn="{StaticResource Badge}">
+    <Setter Property="Background" Value="{StaticResource Brush.Success.Soft}"/>
+  </Style>
+  <Style x:Key="Badge.Error" TargetType="Border" BasedOn="{StaticResource Badge}">
+    <Setter Property="Background" Value="{StaticResource Brush.Danger.Soft}"/>
+  </Style>
+
+  <!-- ======================================================== 状态块 -->
+  <Style x:Key="StatePanel" TargetType="StackPanel">
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="Margin" Value="0,32"/>
+  </Style>
+
+  <!-- ======================================================== 动效 -->
+  <Storyboard x:Key="Drawer.In">
+    <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                     From="520" To="0" Duration="0:0:0.22">
+      <DoubleAnimation.EasingFunction>
+        <CubicEase EasingMode="EaseOut"/>
+      </DoubleAnimation.EasingFunction>
+    </DoubleAnimation>
+  </Storyboard>
+
+</ResourceDictionary>

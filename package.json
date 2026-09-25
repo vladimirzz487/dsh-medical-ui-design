@@ -1,0 +1,46 @@
+{
+  "name": "dsh-medical-ui-design",
+  "version": "1.0.0",
+  "description": "医院内部软件桌面端 UI/UX 设计技能：新增功能、新页面、布局改动时自动套用统一的医疗工作台设计规范（颜色/排版/间距/组件/状态/禁止事项），附零依赖合规审查脚本与 Web、WPF 主题模板。",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "cordis",
+    "skill",
+    "ui",
+    "ux",
+    "design-system",
+    "medical",
+    "hospital",
+    "his",
+    "wpf",
+    "医院",
+    "界面设计"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./skill": {
+      "default": "./lib/skill.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "docs",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

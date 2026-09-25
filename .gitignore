@@ -1,0 +1,19 @@
+# 依赖
+node_modules/
+.pnpm-store/
+
+# 日志与临时产物
+*.log
+npm-debug.log*
+pnpm-debug.log*
+pnpm-lock.yaml
+
+# 编辑器与系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 本地环境
+.env
+.env.local

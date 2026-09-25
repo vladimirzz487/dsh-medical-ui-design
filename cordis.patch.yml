@@ -1,0 +1,6 @@
+# dsh-medical-ui-design bundle patch: mounts the plugin into a profile layer stack.
+# The plugin registers the `medical-desktop-ui-design` skill on ctx.skills; it exposes
+# no other host or client surface, so this single insert row is the whole mount.
+- insert:
+    - id: medical-ui-design
+      name: 'dsh-medical-ui-design'
