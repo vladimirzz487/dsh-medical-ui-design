@@ -11,6 +11,8 @@
 [![Platform](https://img.shields.io/badge/platform-Web%20%7C%20WPF-2563EB.svg)](#覆盖范围)
 [![Dependencies](https://img.shields.io/badge/dependencies-none-16A34A.svg)](#核心特性)
 
+**仓库地址：<https://github.com/vladimirzz487/dsh-medical-ui-design>**
+
 </div>
 
 ![卫材库房工作台 · 设计规范落地示例](docs/images/workbench.png)
@@ -52,24 +54,30 @@
 ### 从 GitHub 安装
 
 ```bash
-# 安装到指定 profile（profile 名按需替换，如 web / cli）
-dsh plugin --profile <profile> add github:<owner>/dsh-medical-ui-design
+# 一行命令即可安装（把 web 换成你实际使用的 profile 名）
+dsh plugin --profile web add github:vladimirzz487/dsh-medical-ui-design
 ```
 
-也可以在 DSH 的插件管理器中直接安装本仓库地址。安装完成后**无需重启**（本插件是纯 `insert` bundle patch，支持热挂载），新会话的技能目录中即会出现 `medical-desktop-ui-design`。
+也可以在 DSH 的插件管理器中直接填入本仓库地址：
+
+```
+https://github.com/vladimirzz487/dsh-medical-ui-design
+```
+
+安装完成后**无需重启**（本插件是纯 `insert` bundle patch，支持热挂载），新会话的技能目录中即会出现 `medical-desktop-ui-design`。
 
 ### 从源码安装
 
 ```bash
-git clone https://github.com/<owner>/dsh-medical-ui-design.git
+git clone https://github.com/vladimirzz487/dsh-medical-ui-design.git
 cd dsh-medical-ui-design
-dsh plugin --profile <profile> add "$(pwd)"      # Windows PowerShell: dsh plugin --profile web add "$PWD"
+dsh plugin --profile web add "$(pwd)"      # Windows PowerShell: dsh plugin --profile web add "$PWD"
 ```
 
 ### 验证安装
 
 ```bash
-dsh --profile <profile> --dump-config | grep dsh-medical-ui-design
+dsh --profile web --dump-config | grep dsh-medical-ui-design
 ```
 
 或在 DSH 会话中查看技能目录：医院/医疗/界面设计相关任务会自动加载该技能，也可显式要求"使用 medical-desktop-ui-design 技能"。
